@@ -27,6 +27,10 @@ class BookCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    @objc func labelClicked(_ sender: Any) {
+        print("Clicked")
+    }
+        
     private let author: UILabel = {
         let view = UILabel()
         view.numberOfLines = 2
@@ -40,6 +44,7 @@ class BookCollectionViewCell: UICollectionViewCell {
         let view = UIImageView()
         view.image = UIImage(systemName: "star")
         view.contentMode = .scaleAspectFill
+        view.isUserInteractionEnabled = true       
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -53,12 +58,17 @@ class BookCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+                                  
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubviews(bookImage, title, author, favoriteButton, showTranslation
         )
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(labelClicked(_:))
+        )
+        favoriteButton.addGestureRecognizer(gestureRecognizer)
         addConstraints()
     }
     

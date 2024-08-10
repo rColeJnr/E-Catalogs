@@ -11,6 +11,7 @@ class BookListView: UIView {
     
     private let bookStore = BookStore()
     private var books: [Book] = []
+    public weak var delegate: BookListViewDelegate?
     
     // MARK: - Views
     private let spinner = {
@@ -113,6 +114,13 @@ extension BookListView: UICollectionViewDataSource, UICollectionViewDelegate, UI
         // do nothing
         let book = books[indexPath.row]
         
-        
+        let vc = BookDetailsViewController()
+        vc.store = bookStore
+        vc.book = book
+        delegate?.didSelectBook(vc: vc)
     }
+}
+
+protocol BookListViewDelegate: AnyObject {
+    func didSelectBook(vc: BookDetailsViewController)
 }

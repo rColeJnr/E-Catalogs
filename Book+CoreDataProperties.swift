@@ -2,7 +2,7 @@
 //  Book+CoreDataProperties.swift
 //  E-Catalogs
 //
-//  Created by rColeJnr on 09/08/24.
+//  Created by rColeJnr on 10/08/24.
 //
 //
 
@@ -25,6 +25,7 @@ extension Book {
     @NSManaged public var author: String?
     @NSManaged public var image: NSURL?
     @NSManaged public var amazonLiink: NSURL?
+    @NSManaged public var favorite: BookFavorite?
 
 }
 

@@ -9,19 +9,19 @@ import UIKit
 
 class BookDetailsViewController: UIViewController {
     
-    var detailsView: BookDetailsView
+    var detailsView = BookDetailsView()
+    var store: BookStore!
     
     var book: Book! {
         didSet {
             navigationItem.title = book.title
+            detailsView.configure(with: book, store: store)
         }
     }
-    var store: BookStore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupView(<#T##view: UIView##UIView#>)
+        setupView(detailsView)
     }
     
 }
