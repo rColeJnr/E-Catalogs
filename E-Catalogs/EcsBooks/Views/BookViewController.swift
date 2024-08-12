@@ -14,11 +14,16 @@ class BookViewController: UIViewController, BookListViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Bestsellers"
+//        bookListView.bookStore = store
         bookListView.delegate = self
         setupView(bookListView)
     }
     
     func didSelectBook(vc: BookDetailsViewController) {
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func navigateToFavorites(vc: BookFavoriteViewController) {
         navigationController?.pushViewController(vc, animated: true)
     }
     

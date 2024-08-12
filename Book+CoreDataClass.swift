@@ -2,7 +2,7 @@
 //  Book+CoreDataClass.swift
 //  E-Catalogs
 //
-//  Created by rColeJnr on 09/08/24.
+//  Created by rColeJnr on 12/08/24.
 //
 //
 

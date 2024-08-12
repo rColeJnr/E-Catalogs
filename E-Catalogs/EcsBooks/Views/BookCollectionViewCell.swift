@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class BookCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "BookCollectionViewCell"
     
+    private var book: Book!
+    private var store: BookStore = EcsTabBarController.bookStore
+ 
+    // MARK: - Views
     private let bookImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
@@ -26,10 +31,6 @@ class BookCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    @objc func labelClicked(_ sender: Any) {
-        print("Clicked")
-    }
         
     private let author: UILabel = {
         let view = UILabel()
@@ -42,7 +43,6 @@ class BookCollectionViewCell: UICollectionViewCell {
     
     private let favoriteButton: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "star")
         view.contentMode = .scaleAspectFill
         view.isUserInteractionEnabled = true       
         view.clipsToBounds = true
@@ -55,26 +55,60 @@ class BookCollectionViewCell: UICollectionViewCell {
         view.textColor = .label
         view.font = .systemFont(ofSize: 20, weight: .medium)
         view.text = "Show translation"
+        view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-                                  
+    
+    // MARK: - Gestures
+    // Response to user on click actions
+    
+    /// Update isFavorite book property, attach book to new bookFavorite with a date.now object
+    @objc private func onFavoriteClicked(_ sender: Any) {
+        book.isFavorite = !book.isFavorite
+        favoriteButton.image = if book.isFavorite {
+            UIImage(systemName: "star.fill")
+        } else {
+            UIImage(systemName: "star")
+        }
+//        let newFav = NSEntityDescription.insertNewObject(forEntityName: "BookFavorite", into: context)
+//        if (book.isFavorite) {
+//            newFav.setValue(Date.now, forKey: "dateAdded")
+//            book.favorite = newFav as? BookFavorite
+//        } else {
+//            // TODO, update item list after removal, maybe also give option to cancel removal
+//            book.favorite = nil
+//        }
+//        
+        do {
+            try self.store.persistentContainer.viewContext.save()
+        } catch let error {
+            print("Failed to save book favorite to core data: \(error)")
+        }
+    }
+         
+    @objc private func onShowTranslation(_ sender: Any) {
+        print(book.description)
+    }
+    
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .secondarySystemBackground
-        contentView.addSubviews(bookImage, title, author, favoriteButton, showTranslation
-        )
+        contentView.addSubviews(bookImage, title, author, favoriteButton, showTranslation)
+         
+        favoriteButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFavoriteClicked(_:))))
+        showTranslation.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onShowTranslation(_:))))
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(labelClicked(_:))
-        )
-        favoriteButton.addGestureRecognizer(gestureRecognizer)
         addConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - View configurations
     
     private func addConstraints(){
         NSLayoutConstraint.activate([
@@ -103,15 +137,17 @@ class BookCollectionViewCell: UICollectionViewCell {
             
             favoriteButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             favoriteButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -4),
-            
         ])
     }
     
-    func configure(with bookStore: BookStore?, book: Book) {
+    /// BInd book data to UI
+    func configure(book: Book) {
+        self.book = book
         title.text = book.title
         author.text = book.author
+        self.favoriteButton.image = if book.isFavorite {UIImage(systemName: "star.fill")} else { UIImage(systemName: "star")}
         // Download the book image data
-        bookStore?.fetchBookImage(url: book.image, key: book.isbn10, completion: { [weak self] result in
+        store.fetchBookImage(url: book.image, key: book.isbn10, completion: { [weak self] result in
             guard case let .success(uIImage) = result else {
                 self?.bookImage.image = nil
                 return

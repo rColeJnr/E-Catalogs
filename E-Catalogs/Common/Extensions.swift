@@ -15,6 +15,19 @@ extension UIView {
             addSubview($0)
         })
     }
+    
+    func showErrorMsg(msg: String) -> UIView {
+        let errorView = {
+            let view = UILabel()
+            view.text = "Whoops, failure with msg: \(msg)"
+            view.textColor = .systemRed
+            view.font = .systemFont(ofSize: 20, weight: .medium)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
+        }()
+        
+        return errorView
+    }
 
 //    func addPinnedSubview(
 //        _ subview: UIView, height: CGFloat? = nil,
@@ -52,3 +65,5 @@ extension UIDevice {
     /// Check if current device is phone idiom
     static let isiPhone = UIDevice.current.userInterfaceIdiom == .phone
 }
+
+

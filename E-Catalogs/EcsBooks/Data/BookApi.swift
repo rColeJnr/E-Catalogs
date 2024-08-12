@@ -17,6 +17,7 @@ struct BookApi {
         formatter.dateFormat = "yyyy=MM-dd HH:mm:ss"
         return formatter
     }()
+    
     static var fictionBestsellersUrl: URL {
         return bookUrl(method: .getFictionBestsellers, parameters: nil)
     }
@@ -33,6 +34,7 @@ struct BookApi {
         return bookUrl(method: .getGraphicBestsellers, parameters: nil)
     }
     
+    /// Build book url
     private static func bookUrl(method: Method, parameters: [String:String]? ) -> URL {
         
         var components: URLComponents = URLComponents(string: baseUrl+method.rawValue)!
@@ -58,7 +60,8 @@ struct BookApi {
         
         return components.url!
     }
-        
+     
+    /// Build an array list fo books from json, then call func book on each book, return final array of books
     static func books(fromJson json: Data, into context: NSManagedObjectContext) -> BooksResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: json, options: [])
@@ -67,7 +70,7 @@ struct BookApi {
                 let books = jsonDictionary["results"] as? [String:Any],
                 let booksArray = books["books"] as? [[String:Any]] else {
                 // The Json structure doesn't match our expectations
-                print("Print: json structure doenst match")
+                print("Print: json structure does not match")
                 return .failure(EcsError.invalidJsonData)
             }
             
@@ -90,6 +93,7 @@ struct BookApi {
         }
     }
     
+    /// Construct a book from JsonData, fetch CoreData for a match, if core data has book with same isbn10 return coreData book, else return book constructed from jsonData
     private static func book(fromJson json: [String: Any], into context: NSManagedObjectContext) -> Book? {
         guard
             let bookIsbn = json["primary_isbn10"] as? String,
@@ -109,13 +113,17 @@ struct BookApi {
         }
         
         let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
-        let predicate = NSPredicate(format: "\(#keyPath(Book.isbn10)) == \(bookIsbn)")
-        fetchRequest.predicate = predicate
+        let predicate1 = NSPredicate(format: "isbn10 == \"\(bookIsbn)\"")
+        let predicate2 = NSPredicate(format: "\(#keyPath(Book.title)) == \"\(title)\"")
+        let compoundPredicate = NSCompoundPredicate.init(type: .and, subpredicates: [predicate1, predicate2])
+        
+        fetchRequest.predicate = compoundPredicate
         
         var fetchedBooks: [Book]?
         context.performAndWait{
             fetchedBooks = try? fetchRequest.execute()
         }
+        
         
         if let existingBook = fetchedBooks?.first {
             return existingBook
@@ -133,9 +141,8 @@ struct BookApi {
             book.rank = Int16(rank)
             book.rankLastWeek = Int16(rankLastWeek)
             book.weeksOnLIst = Int16(weeksOnList)
-    
+            book.isFavorite = false
         })
-        
         return book
     }
 }

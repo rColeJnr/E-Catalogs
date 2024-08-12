@@ -6,21 +6,23 @@
 //
 
 import UIKit
+import CoreData
 
 class BookDetailsViewController: UIViewController {
     
     var detailsView = BookDetailsView()
-    var store: BookStore!
+    var store: BookStore! = EcsTabBarController.bookStore
     
     var book: Book! {
         didSet {
             navigationItem.title = book.title
             detailsView.configure(with: book, store: store)
+            
         }
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()  
         setupView(detailsView)
     }
     

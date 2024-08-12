@@ -6,14 +6,10 @@
         <attribute name="bookDescription" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="NSURL"/>
         <attribute name="isbn10" optional="YES" attributeType="String"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="rankLastWeek" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="weeksOnLIst" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="favorite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BookFavorite" inverseName="book" inverseEntity="BookFavorite"/>
-    </entity>
-    <entity name="BookFavorite" representedClassName="BookFavorite" syncable="YES" codeGenerationType="class">
-        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="favorite" inverseEntity="Book"/>
     </entity>
 </model>

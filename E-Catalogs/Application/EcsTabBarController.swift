@@ -9,6 +9,10 @@ import UIKit
 
 class EcsTabBarController: UITabBarController {
     
+    static var bookStore: BookStore = BookStore()
+//    var movieStore: MovieStore!
+//    var animeStore: AnimeStore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabs()
@@ -18,6 +22,7 @@ class EcsTabBarController: UITabBarController {
         let animeVC = AnimeViewController()
         let bookVC = BookViewController()
         let moviesVC = MoviesViewController()
+
         
         bookVC.navigationItem.largeTitleDisplayMode = .automatic
         moviesVC.navigationItem.largeTitleDisplayMode = .automatic

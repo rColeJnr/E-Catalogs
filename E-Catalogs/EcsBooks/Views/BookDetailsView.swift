@@ -9,6 +9,7 @@ import UIKit
 
 class BookDetailsView: UIView {
     
+    // MARK: - VIEWS
     private let image = {
         let view = UIImageView()
         view.image = UIImage(systemName: "car")
@@ -64,20 +65,30 @@ class BookDetailsView: UIView {
         view.textColor = .label
         view.textAlignment = .center
         view.backgroundColor = .secondarySystemFill
+        view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
+    // MARK: - TAP GESTURES
+    @objc private func onShowOnAmazon(_ sender: Any) {
+        print("Open web page")
+    }
+    
+    // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         addSubviews(image, overview, author, rank, rankLastWeek, weeksOnList, amazonLink)
+        amazonLink.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onShowOnAmazon(_:))))
         addConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - VIEW CONFIGURATIONS
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -116,8 +127,9 @@ class BookDetailsView: UIView {
         ])
     }
     
+    /// Bind book data to user interface
     func configure(with book: Book, store: BookStore) {
-        // Download book image
+        // fetch book image from cache/download image
         store.fetchBookImage(url: book.image, key: book.isbn10, completion: { [weak self] result in
             guard case let .success(uIImage) = result else {
                 self?.image.image = nil
@@ -132,6 +144,4 @@ class BookDetailsView: UIView {
         rankLastWeek.text = "Rank last week: \(book.rankLastWeek)"
         weeksOnList.text = "Weeks on list: \(book.rank)"
     }
-    
-    
 }

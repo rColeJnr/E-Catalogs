@@ -29,8 +29,8 @@ class BookStore {
         return URLSession(configuration: config)
     }()
     
-    let persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "EcsCoreData")
+    let persistentContainer: NSPersistentCloudKitContainer = {
+        let container = NSPersistentCloudKitContainer(name: "EcsCoreData")
         container.loadPersistentStores(completionHandler: {description, error in
             if let error = error {
                 print("Error setting up core data: \(error)")
@@ -44,7 +44,7 @@ class BookStore {
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request, completionHandler: { (data, _, error) -> Void in
             
-            // Print json response
+//             Print json response
 //            if let jsonData = data {
 //                if let josnString = String(data: jsonData, encoding: .utf8) {
 //                    print(josnString)
@@ -54,10 +54,10 @@ class BookStore {
 //            } else {
 //                print("unxecpected error")
 //            }
-//
-            // Before core data caching
+
+//             Before core data caching
 //            let result = self.processBooksRequest(data: data, error: error)
-          
+//          
             self.processBooksRequest(data: data, error: error, completion: { result in
                 OperationQueue.main.addOperation {
                     completion(result)
@@ -68,6 +68,7 @@ class BookStore {
         
     }
     
+    // Cache all books fetched from api, return cached books.
     private func processBooksRequest(data: Data?, error: Error?, completion: @escaping (BooksResult) -> Void) {
         guard let jsonData = data else {
             completion(.failure(error!))
@@ -98,6 +99,7 @@ class BookStore {
         }
     }
     
+    /// Download the image from the image urlString, the image is cached during this function call.
     func fetchBookImage(url: NSURL?, key: String?, completion: @escaping (ImageResult) -> Void) {
         guard 
             let imageURL = url as URL?,
@@ -124,5 +126,23 @@ class BookStore {
             }
         }
         
+    }
+    
+    /// Fetch core data for favorite books
+    func fetchFavoriteBestsellers(completion: @escaping (BooksResult) -> Void) {
+        let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
+
+        let predicate = NSPredicate(format: "\(#keyPath(Book.isFavorite)) == \(true)")
+        fetchRequest.predicate = predicate
+        
+        let viewContext = persistentContainer.viewContext
+        viewContext.perform {
+            do {
+                let allBooks = try viewContext.fetch(fetchRequest)
+                completion(.success(allBooks))
+            } catch {
+                completion(.failure(error))
+            }
+        }
     }
 }

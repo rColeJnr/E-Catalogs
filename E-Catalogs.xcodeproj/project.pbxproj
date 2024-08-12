@@ -14,7 +14,6 @@
 		7538EF4F2C64C9EB0066BD1D /* EcsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF4E2C64C9EB0066BD1D /* EcsTabBarController.swift */; };
 		7538EF582C64CAE50066BD1D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF572C64CAE50066BD1D /* Extensions.swift */; };
 		7538EF5D2C64CC9A0066BD1D /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF5C2C64CC9A0066BD1D /* BookViewController.swift */; };
-		7538EF612C64CF180066BD1D /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF602C64CF180066BD1D /* MoviesViewController.swift */; };
 		7538EF632C64CF310066BD1D /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF622C64CF310066BD1D /* AnimeViewController.swift */; };
 		7538EF652C650D060066BD1D /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF642C650D060066BD1D /* MovieListView.swift */; };
 		7538EF672C650FB20066BD1D /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF662C650FB20066BD1D /* BookListView.swift */; };
@@ -26,10 +25,14 @@
 		7538EF7B2C653F2D0066BD1D /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7A2C653F2D0066BD1D /* BookStore.swift */; };
 		7538EF7D2C6546B80066BD1D /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7C2C6546B80066BD1D /* ImageStore.swift */; };
 		7538EF7F2C654ED90066BD1D /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7E2C654ED90066BD1D /* ImageFetcher.swift */; };
-		7538EF852C66825C0066BD1D /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF832C66825C0066BD1D /* Book+CoreDataClass.swift */; };
 		7538EF882C66B71B0066BD1D /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF872C66B71B0066BD1D /* BookDetailsViewController.swift */; };
 		7538EF8A2C66B91E0066BD1D /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF892C66B91E0066BD1D /* BookDetailsView.swift */; };
-		7538EF8C2C6740180066BD1D /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF8B2C6740180066BD1D /* Book+CoreDataProperties.swift */; };
+		7538EF8E2C6754870066BD1D /* BookFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF8D2C6754870066BD1D /* BookFavoriteViewController.swift */; };
+		7538EF982C688D520066BD1D /* BookFavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF972C688D520066BD1D /* BookFavoriteListView.swift */; };
+		7538EFB12C69D6390066BD1D /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFAF2C69D6390066BD1D /* MoviesViewController.swift */; };
+		7538EFB22C69D6390066BD1D /* MoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7538EFB02C69D6390066BD1D /* MoviesViewController.xib */; };
+		7538EFBD2C6A99900066BD1D /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */; };
+		7538EFBE2C6A99900066BD1D /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +45,6 @@
 		7538EF4E2C64C9EB0066BD1D /* EcsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsTabBarController.swift; sourceTree = "<group>"; };
 		7538EF572C64CAE50066BD1D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7538EF5C2C64CC9A0066BD1D /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
-		7538EF602C64CF180066BD1D /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		7538EF622C64CF310066BD1D /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
 		7538EF642C650D060066BD1D /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		7538EF662C650FB20066BD1D /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
@@ -54,10 +56,14 @@
 		7538EF7A2C653F2D0066BD1D /* BookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
 		7538EF7C2C6546B80066BD1D /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		7538EF7E2C654ED90066BD1D /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
-		7538EF832C66825C0066BD1D /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7538EF872C66B71B0066BD1D /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		7538EF892C66B91E0066BD1D /* BookDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsView.swift; sourceTree = "<group>"; };
-		7538EF8B2C6740180066BD1D /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7538EF8D2C6754870066BD1D /* BookFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFavoriteViewController.swift; sourceTree = "<group>"; };
+		7538EF972C688D520066BD1D /* BookFavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFavoriteListView.swift; sourceTree = "<group>"; };
+		7538EFAF2C69D6390066BD1D /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		7538EFB02C69D6390066BD1D /* MoviesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesViewController.xib; sourceTree = "<group>"; };
+		7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +148,6 @@
 		7538EF4B2C64B83D0066BD1D /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				7538EF8B2C6740180066BD1D /* Book+CoreDataProperties.swift */,
-				7538EF832C66825C0066BD1D /* Book+CoreDataClass.swift */,
 				7538EF712C652D260066BD1D /* BookResponse.swift */,
 				7538EF752C6535F80066BD1D /* BookApi.swift */,
 				7538EF7A2C653F2D0066BD1D /* BookStore.swift */,
@@ -174,7 +178,8 @@
 		7538EF502C64C9F10066BD1D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7538EF602C64CF180066BD1D /* MoviesViewController.swift */,
+				7538EFAF2C69D6390066BD1D /* MoviesViewController.swift */,
+				7538EFB02C69D6390066BD1D /* MoviesViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +200,8 @@
 				7538EF6C2C652AD10066BD1D /* BookCollectionViewCell.swift */,
 				7538EF872C66B71B0066BD1D /* BookDetailsViewController.swift */,
 				7538EF892C66B91E0066BD1D /* BookDetailsView.swift */,
+				7538EF8D2C6754870066BD1D /* BookFavoriteViewController.swift */,
+				7538EF972C688D520066BD1D /* BookFavoriteListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +235,8 @@
 		7538EF6A2C6512D10066BD1D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */,
+				7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -305,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7538EF1A2C640CFE0066BD1D /* Assets.xcassets in Resources */,
+				7538EFB22C69D6390066BD1D /* MoviesViewController.xib in Resources */,
 				7538EF1D2C640CFE0066BD1D /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,10 +328,13 @@
 			files = (
 				7538EF4F2C64C9EB0066BD1D /* EcsTabBarController.swift in Sources */,
 				7538EF112C640CFD0066BD1D /* AppDelegate.swift in Sources */,
+				7538EF8E2C6754870066BD1D /* BookFavoriteViewController.swift in Sources */,
 				7538EF652C650D060066BD1D /* MovieListView.swift in Sources */,
+				7538EFBD2C6A99900066BD1D /* Book+CoreDataClass.swift in Sources */,
+				7538EFBE2C6A99900066BD1D /* Book+CoreDataProperties.swift in Sources */,
 				7538EF132C640CFD0066BD1D /* SceneDelegate.swift in Sources */,
+				7538EF982C688D520066BD1D /* BookFavoriteListView.swift in Sources */,
 				7538EF7B2C653F2D0066BD1D /* BookStore.swift in Sources */,
-				7538EF8C2C6740180066BD1D /* Book+CoreDataProperties.swift in Sources */,
 				7538EF7F2C654ED90066BD1D /* ImageFetcher.swift in Sources */,
 				7538EF7D2C6546B80066BD1D /* ImageStore.swift in Sources */,
 				7538EF582C64CAE50066BD1D /* Extensions.swift in Sources */,
@@ -329,10 +342,9 @@
 				7538EF632C64CF310066BD1D /* AnimeViewController.swift in Sources */,
 				7538EF692C650FD20066BD1D /* AnimeListView.swift in Sources */,
 				7538EF722C652D260066BD1D /* BookResponse.swift in Sources */,
-				7538EF852C66825C0066BD1D /* Book+CoreDataClass.swift in Sources */,
 				7538EF672C650FB20066BD1D /* BookListView.swift in Sources */,
 				7538EF6D2C652AD10066BD1D /* BookCollectionViewCell.swift in Sources */,
-				7538EF612C64CF180066BD1D /* MoviesViewController.swift in Sources */,
+				7538EFB12C69D6390066BD1D /* MoviesViewController.swift in Sources */,
 				7538EF5D2C64CC9A0066BD1D /* BookViewController.swift in Sources */,
 				7538EF792C65362D0066BD1D /* EcsCoreData.xcdatamodeld in Sources */,
 				7538EF762C6535F80066BD1D /* BookApi.swift in Sources */,
