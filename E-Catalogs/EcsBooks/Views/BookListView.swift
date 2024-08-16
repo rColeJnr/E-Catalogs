@@ -14,7 +14,8 @@ class BookListView: UIView {
     public weak var delegate: BookListViewDelegate?
     
     // MARK: - Views
-    
+    let options = ["Fiction", "Non fiction", "Miscellaneous", "Graphical/Manga"]
+
     private let categoryLabel = {
         let view = UILabel()
         view.text = "Selected category:"
@@ -28,16 +29,6 @@ class BookListView: UIView {
         var viewConfig = UIButton.Configuration.gray()
         viewConfig.title = "Fiction"
         let view = UIButton(configuration: viewConfig)
-        let options = ["Fiction", "Non fiction", "Miscellaneous", "Graphical/Manga"]
-        let actions: [UIAction] = options.map {
-            let action = UIAction(title: $0, handler:{ action in
-                view.configuration?.title = action.title
-            })
-            return action
-        }
-        let menu = UIMenu(children: actions)
-        view.menu = menu
-        view.showsMenuAsPrimaryAction = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -83,10 +74,26 @@ class BookListView: UIView {
         addSubviews(categoryLabel, optionsButton, favoriteButton, collectionView, spinner)
         addConstraints()
         spinner.startAnimating()
-        bookStore.fetchFictionBestsellers { _ in // on Completion, call the cached data
+        // Fetch fiction bestsellers on init
+        bookStore.fetchBestsellers(0) { _ in // on Completion, call the cached data
             self.fetchCachedFiction()
         }
         favoriteButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFavoriteClick(_:))))
+       
+        let actions: [UIAction] = options.map {
+            let action = UIAction(title: $0, handler:{ action in
+                self.optionsButton.configuration?.title = action.title
+                
+                self.fetchSelectedOption(index: self.options.firstIndex(of: action.title)!)
+               
+            })
+            return action
+        }
+        let menu = UIMenu(children: actions)
+        optionsButton.menu = menu
+        optionsButton.showsMenuAsPrimaryAction = true
+        
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -125,6 +132,21 @@ class BookListView: UIView {
         ])
     }
 
+    /// Fetch bestselling books when diferent menu option is selected
+    private func fetchSelectedOption(index: Int) {
+        bookStore.fetchBestsellers(index) {[weak self] booksResult in
+            switch booksResult {
+            case .success(let books):
+                self?.books = books
+                self?.collectionView.reloadData()
+            case .failure(_):
+                self?.books.removeAll()
+                self?.collectionView.reloadData()
+            }
+        }
+        spinner.stopAnimating()
+    }
+    
     private func fetchCachedFiction() {
         bookStore.fetchAllBooks(completion: { [weak self] booksResult in
             switch booksResult {

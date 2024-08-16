@@ -21,11 +21,4 @@ class MovieTableViewCell: UITableViewCell {
         overview.adjustsFontForContentSizeCategory = true
         movieTitle.adjustsFontForContentSizeCategory = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

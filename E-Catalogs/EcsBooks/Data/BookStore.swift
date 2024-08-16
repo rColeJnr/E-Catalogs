@@ -28,8 +28,8 @@ class BookStore {
     
     private let persistentContainer: NSPersistentCloudKitContainer = EcsStore.shared.persistentContainer
     
-    func fetchFictionBestsellers(completion: @escaping (BooksResult) -> Void) {
-        let url = BookApi.fictionBestsellersUrl
+    func fetchBestsellers(_ index: Int, completion: @escaping (BooksResult) -> Void) {
+        let url = BookApi.bestsellersUrl(index)
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request, completionHandler: { (data, _, error) -> Void in
             

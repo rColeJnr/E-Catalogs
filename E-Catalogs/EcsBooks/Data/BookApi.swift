@@ -18,24 +18,12 @@ struct BookApi {
         return formatter
     }()
     
-    static var fictionBestsellersUrl: URL {
-        return bookUrl(method: .getFictionBestsellers, parameters: nil)
-    }
-    
-    static var nonFictionBestsellersUrl: URL {
-        return bookUrl(method: .getNonFictionBestsellers, parameters: nil)
-    }
-    
-    static var miscellaneousBestsellersUrl: URL {
-        return bookUrl(method: .getMiscellaneousBestsellers, parameters: nil)
-    }
-    
-    static var graphicBestsellersUrl: URL {
-        return bookUrl(method: .getGraphicBestsellers, parameters: nil)
+    static func bestsellersUrl(_ index: Int)-> URL {
+        return bookUrl(method: BestsellerMethod.allCases[index], parameters: nil)
     }
     
     /// Build book url
-    private static func bookUrl(method: Method, parameters: [String:String]? ) -> URL {
+    private static func bookUrl(method: BestsellerMethod, parameters: [String:String]? ) -> URL {
         
         var components: URLComponents = URLComponents(string: baseUrl+method.rawValue)!
         var queryItems: [URLQueryItem] = []
@@ -146,7 +134,7 @@ struct BookApi {
     }
 }
 
-enum Method: String {
+enum BestsellerMethod: String, CaseIterable {
     case getFictionBestsellers = "svc/books/v3/lists/current/hardcover-fiction.json"
     case getNonFictionBestsellers = "svc/books/v3/lists/current/hardcover-nonfiction.json"
     case getMiscellaneousBestsellers = "svc/books/v3/lists/current/advice-how-to-and-miscellaneous.json"
