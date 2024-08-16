@@ -81,7 +81,7 @@ class BookCollectionViewCell: UICollectionViewCell {
 //        }
 //        
         do {
-            try self.store.persistentContainer.viewContext.save()
+            try EcsStore.shared.persistentContainer.viewContext.save()
         } catch let error {
             print("Failed to save book favorite to core data: \(error)")
         }
@@ -147,7 +147,7 @@ class BookCollectionViewCell: UICollectionViewCell {
         author.text = book.author
         self.favoriteButton.image = if book.isFavorite {UIImage(systemName: "star.fill")} else { UIImage(systemName: "star")}
         // Download the book image data
-        store.fetchBookImage(url: book.image, key: book.isbn10, completion: { [weak self] result in
+        EcsStore.shared.ecsFetchImage(url: book.image, key: book.isbn10, completion: { [weak self] result in
             guard case let .success(uIImage) = result else {
                 self?.bookImage.image = nil
                 return

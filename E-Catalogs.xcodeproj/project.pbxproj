@@ -12,10 +12,9 @@
 		7538EF1A2C640CFE0066BD1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7538EF192C640CFE0066BD1D /* Assets.xcassets */; };
 		7538EF1D2C640CFE0066BD1D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7538EF1C2C640CFE0066BD1D /* Base */; };
 		7538EF4F2C64C9EB0066BD1D /* EcsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF4E2C64C9EB0066BD1D /* EcsTabBarController.swift */; };
-		7538EF582C64CAE50066BD1D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF572C64CAE50066BD1D /* Extensions.swift */; };
+		7538EF582C64CAE50066BD1D /* EcsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF572C64CAE50066BD1D /* EcsExtensions.swift */; };
 		7538EF5D2C64CC9A0066BD1D /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF5C2C64CC9A0066BD1D /* BookViewController.swift */; };
 		7538EF632C64CF310066BD1D /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF622C64CF310066BD1D /* AnimeViewController.swift */; };
-		7538EF652C650D060066BD1D /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF642C650D060066BD1D /* MovieListView.swift */; };
 		7538EF672C650FB20066BD1D /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF662C650FB20066BD1D /* BookListView.swift */; };
 		7538EF692C650FD20066BD1D /* AnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF682C650FD20066BD1D /* AnimeListView.swift */; };
 		7538EF6D2C652AD10066BD1D /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF6C2C652AD10066BD1D /* BookCollectionViewCell.swift */; };
@@ -23,16 +22,27 @@
 		7538EF762C6535F80066BD1D /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF752C6535F80066BD1D /* BookApi.swift */; };
 		7538EF792C65362D0066BD1D /* EcsCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF772C65362D0066BD1D /* EcsCoreData.xcdatamodeld */; };
 		7538EF7B2C653F2D0066BD1D /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7A2C653F2D0066BD1D /* BookStore.swift */; };
-		7538EF7D2C6546B80066BD1D /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7C2C6546B80066BD1D /* ImageStore.swift */; };
-		7538EF7F2C654ED90066BD1D /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7E2C654ED90066BD1D /* ImageFetcher.swift */; };
+		7538EF7D2C6546B80066BD1D /* EcsImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7C2C6546B80066BD1D /* EcsImageStore.swift */; };
+		7538EF7F2C654ED90066BD1D /* EcsImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7E2C654ED90066BD1D /* EcsImageFetcher.swift */; };
 		7538EF882C66B71B0066BD1D /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF872C66B71B0066BD1D /* BookDetailsViewController.swift */; };
 		7538EF8A2C66B91E0066BD1D /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF892C66B91E0066BD1D /* BookDetailsView.swift */; };
 		7538EF8E2C6754870066BD1D /* BookFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF8D2C6754870066BD1D /* BookFavoriteViewController.swift */; };
 		7538EF982C688D520066BD1D /* BookFavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF972C688D520066BD1D /* BookFavoriteListView.swift */; };
-		7538EFB12C69D6390066BD1D /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFAF2C69D6390066BD1D /* MoviesViewController.swift */; };
-		7538EFB22C69D6390066BD1D /* MoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7538EFB02C69D6390066BD1D /* MoviesViewController.xib */; };
+		7538EFB12C69D6390066BD1D /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFAF2C69D6390066BD1D /* MovieViewController.swift */; };
+		7538EFB22C69D6390066BD1D /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7538EFB02C69D6390066BD1D /* MovieViewController.xib */; };
 		7538EFBD2C6A99900066BD1D /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */; };
 		7538EFBE2C6A99900066BD1D /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */; };
+		7538EFC02C6ABC250066BD1D /* EcsObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFBF2C6ABC250066BD1D /* EcsObservable.swift */; };
+		7538EFC22C6AC3700066BD1D /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFC12C6AC3700066BD1D /* MovieViewModel.swift */; };
+		7538EFD12C6ADF910066BD1D /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFCF2C6ADF910066BD1D /* MovieDetailsViewController.swift */; };
+		7538EFD22C6ADF910066BD1D /* MovieDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7538EFD02C6ADF910066BD1D /* MovieDetailsViewController.xib */; };
+		7538EFDF2C6B26330066BD1D /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFDD2C6B26330066BD1D /* MovieTableViewCell.swift */; };
+		7538EFE02C6B26330066BD1D /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7538EFDE2C6B26330066BD1D /* MovieTableViewCell.xib */; };
+		7538EFE62C6B5F4D0066BD1D /* MovieApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFE52C6B5F4D0066BD1D /* MovieApi.swift */; };
+		7538EFE82C6B63730066BD1D /* MovieStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFE72C6B63730066BD1D /* MovieStore.swift */; };
+		7538EFEB2C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFE92C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift */; };
+		7538EFEE2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFED2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift */; };
+		7538EFF02C6F46ED0066BD1D /* EcsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFEF2C6F46ED0066BD1D /* EcsStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,10 +53,9 @@
 		7538EF1C2C640CFE0066BD1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7538EF1E2C640CFE0066BD1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7538EF4E2C64C9EB0066BD1D /* EcsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsTabBarController.swift; sourceTree = "<group>"; };
-		7538EF572C64CAE50066BD1D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7538EF572C64CAE50066BD1D /* EcsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsExtensions.swift; sourceTree = "<group>"; };
 		7538EF5C2C64CC9A0066BD1D /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		7538EF622C64CF310066BD1D /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
-		7538EF642C650D060066BD1D /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		7538EF662C650FB20066BD1D /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		7538EF682C650FD20066BD1D /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
 		7538EF6C2C652AD10066BD1D /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -54,16 +63,27 @@
 		7538EF752C6535F80066BD1D /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
 		7538EF782C65362D0066BD1D /* EcsCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EcsCoreData.xcdatamodel; sourceTree = "<group>"; };
 		7538EF7A2C653F2D0066BD1D /* BookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
-		7538EF7C2C6546B80066BD1D /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
-		7538EF7E2C654ED90066BD1D /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		7538EF7C2C6546B80066BD1D /* EcsImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsImageStore.swift; sourceTree = "<group>"; };
+		7538EF7E2C654ED90066BD1D /* EcsImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsImageFetcher.swift; sourceTree = "<group>"; };
 		7538EF872C66B71B0066BD1D /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		7538EF892C66B91E0066BD1D /* BookDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsView.swift; sourceTree = "<group>"; };
 		7538EF8D2C6754870066BD1D /* BookFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFavoriteViewController.swift; sourceTree = "<group>"; };
 		7538EF972C688D520066BD1D /* BookFavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFavoriteListView.swift; sourceTree = "<group>"; };
-		7538EFAF2C69D6390066BD1D /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
-		7538EFB02C69D6390066BD1D /* MoviesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesViewController.xib; sourceTree = "<group>"; };
+		7538EFAF2C69D6390066BD1D /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		7538EFB02C69D6390066BD1D /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
 		7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7538EFBF2C6ABC250066BD1D /* EcsObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsObservable.swift; sourceTree = "<group>"; };
+		7538EFC12C6AC3700066BD1D /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		7538EFCF2C6ADF910066BD1D /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		7538EFD02C6ADF910066BD1D /* MovieDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailsViewController.xib; sourceTree = "<group>"; };
+		7538EFDD2C6B26330066BD1D /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		7538EFDE2C6B26330066BD1D /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		7538EFE52C6B5F4D0066BD1D /* MovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApi.swift; sourceTree = "<group>"; };
+		7538EFE72C6B63730066BD1D /* MovieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStore.swift; sourceTree = "<group>"; };
+		7538EFE92C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieResponse+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7538EFED2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieResponse+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7538EFEF2C6F46ED0066BD1D /* EcsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +120,7 @@
 				7538EF4C2C64B8590066BD1D /* Application */,
 				7538EF4A2C64B8310066BD1D /* EcsBooks */,
 				7538EF472C64B80E0066BD1D /* EcsMovies */,
-				7538EF492C64B82A0066BD1D /* EcsAnime */,
+				7538EF492C64B82A0066BD1D /* EcsAnimes */,
 				7538EF192C640CFE0066BD1D /* Assets.xcassets */,
 				7538EF1B2C640CFE0066BD1D /* LaunchScreen.storyboard */,
 				7538EF1E2C640CFE0066BD1D /* Info.plist */,
@@ -113,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				7538EF512C64C9FB0066BD1D /* Views */,
-				7538EF502C64C9F10066BD1D /* Controllers */,
 				7538EF482C64B8200066BD1D /* Data */,
 			);
 			path = EcsMovies;
@@ -122,18 +141,22 @@
 		7538EF482C64B8200066BD1D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7538EFED2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift */,
+				7538EFE92C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift */,
+				7538EFE52C6B5F4D0066BD1D /* MovieApi.swift */,
+				7538EFE72C6B63730066BD1D /* MovieStore.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		7538EF492C64B82A0066BD1D /* EcsAnime */ = {
+		7538EF492C64B82A0066BD1D /* EcsAnimes */ = {
 			isa = PBXGroup;
 			children = (
 				7538EF552C64CA130066BD1D /* Views */,
 				7538EF542C64CA130066BD1D /* Controllers */,
 				7538EF4D2C64BBE60066BD1D /* Data */,
 			);
-			path = EcsAnime;
+			path = EcsAnimes;
 			sourceTree = "<group>";
 		};
 		7538EF4A2C64B8310066BD1D /* EcsBooks */ = {
@@ -175,19 +198,16 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		7538EF502C64C9F10066BD1D /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				7538EFAF2C69D6390066BD1D /* MoviesViewController.swift */,
-				7538EFB02C69D6390066BD1D /* MoviesViewController.xib */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		7538EF512C64C9FB0066BD1D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7538EF642C650D060066BD1D /* MovieListView.swift */,
+				7538EFAF2C69D6390066BD1D /* MovieViewController.swift */,
+				7538EFDD2C6B26330066BD1D /* MovieTableViewCell.swift */,
+				7538EFDE2C6B26330066BD1D /* MovieTableViewCell.xib */,
+				7538EFB02C69D6390066BD1D /* MovieViewController.xib */,
+				7538EFC12C6AC3700066BD1D /* MovieViewModel.swift */,
+				7538EFCF2C6ADF910066BD1D /* MovieDetailsViewController.swift */,
+				7538EFD02C6ADF910066BD1D /* MovieDetailsViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,9 +245,11 @@
 		7538EF562C64CACD0066BD1D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				7538EF572C64CAE50066BD1D /* Extensions.swift */,
-				7538EF7C2C6546B80066BD1D /* ImageStore.swift */,
-				7538EF7E2C654ED90066BD1D /* ImageFetcher.swift */,
+				7538EF572C64CAE50066BD1D /* EcsExtensions.swift */,
+				7538EF7C2C6546B80066BD1D /* EcsImageStore.swift */,
+				7538EF7E2C654ED90066BD1D /* EcsImageFetcher.swift */,
+				7538EFBF2C6ABC250066BD1D /* EcsObservable.swift */,
+				7538EFEF2C6F46ED0066BD1D /* EcsStore.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -314,8 +336,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7538EF1A2C640CFE0066BD1D /* Assets.xcassets in Resources */,
-				7538EFB22C69D6390066BD1D /* MoviesViewController.xib in Resources */,
+				7538EFE02C6B26330066BD1D /* MovieTableViewCell.xib in Resources */,
+				7538EFB22C69D6390066BD1D /* MovieViewController.xib in Resources */,
 				7538EF1D2C640CFE0066BD1D /* Base in Resources */,
+				7538EFD22C6ADF910066BD1D /* MovieDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,25 +353,33 @@
 				7538EF4F2C64C9EB0066BD1D /* EcsTabBarController.swift in Sources */,
 				7538EF112C640CFD0066BD1D /* AppDelegate.swift in Sources */,
 				7538EF8E2C6754870066BD1D /* BookFavoriteViewController.swift in Sources */,
-				7538EF652C650D060066BD1D /* MovieListView.swift in Sources */,
+				7538EFEE2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift in Sources */,
 				7538EFBD2C6A99900066BD1D /* Book+CoreDataClass.swift in Sources */,
+				7538EFEB2C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift in Sources */,
 				7538EFBE2C6A99900066BD1D /* Book+CoreDataProperties.swift in Sources */,
+				7538EFC02C6ABC250066BD1D /* EcsObservable.swift in Sources */,
+				7538EFE62C6B5F4D0066BD1D /* MovieApi.swift in Sources */,
 				7538EF132C640CFD0066BD1D /* SceneDelegate.swift in Sources */,
 				7538EF982C688D520066BD1D /* BookFavoriteListView.swift in Sources */,
 				7538EF7B2C653F2D0066BD1D /* BookStore.swift in Sources */,
-				7538EF7F2C654ED90066BD1D /* ImageFetcher.swift in Sources */,
-				7538EF7D2C6546B80066BD1D /* ImageStore.swift in Sources */,
-				7538EF582C64CAE50066BD1D /* Extensions.swift in Sources */,
+				7538EF7F2C654ED90066BD1D /* EcsImageFetcher.swift in Sources */,
+				7538EFD12C6ADF910066BD1D /* MovieDetailsViewController.swift in Sources */,
+				7538EF7D2C6546B80066BD1D /* EcsImageStore.swift in Sources */,
+				7538EFC22C6AC3700066BD1D /* MovieViewModel.swift in Sources */,
+				7538EFF02C6F46ED0066BD1D /* EcsStore.swift in Sources */,
+				7538EF582C64CAE50066BD1D /* EcsExtensions.swift in Sources */,
 				7538EF8A2C66B91E0066BD1D /* BookDetailsView.swift in Sources */,
 				7538EF632C64CF310066BD1D /* AnimeViewController.swift in Sources */,
 				7538EF692C650FD20066BD1D /* AnimeListView.swift in Sources */,
 				7538EF722C652D260066BD1D /* BookResponse.swift in Sources */,
+				7538EFDF2C6B26330066BD1D /* MovieTableViewCell.swift in Sources */,
 				7538EF672C650FB20066BD1D /* BookListView.swift in Sources */,
 				7538EF6D2C652AD10066BD1D /* BookCollectionViewCell.swift in Sources */,
-				7538EFB12C69D6390066BD1D /* MoviesViewController.swift in Sources */,
+				7538EFB12C69D6390066BD1D /* MovieViewController.swift in Sources */,
 				7538EF5D2C64CC9A0066BD1D /* BookViewController.swift in Sources */,
 				7538EF792C65362D0066BD1D /* EcsCoreData.xcdatamodeld in Sources */,
 				7538EF762C6535F80066BD1D /* BookApi.swift in Sources */,
+				7538EFE82C6B63730066BD1D /* MovieStore.swift in Sources */,
 				7538EF882C66B71B0066BD1D /* BookDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

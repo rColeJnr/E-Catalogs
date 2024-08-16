@@ -124,7 +124,6 @@ struct BookApi {
             fetchedBooks = try? fetchRequest.execute()
         }
         
-        
         if let existingBook = fetchedBooks?.first {
             return existingBook
         }

@@ -7,8 +7,8 @@
 
 import UIKit
 
-/// Cache image in the filesystem and NSCache
-class ImageStore {
+/// Cache web fetched images in NSCache
+class EcsImageStore {
     
     let cache = NSCache<NSString, UIImage>()
     

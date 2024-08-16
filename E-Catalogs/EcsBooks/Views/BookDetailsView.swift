@@ -130,7 +130,7 @@ class BookDetailsView: UIView {
     /// Bind book data to user interface
     func configure(with book: Book, store: BookStore) {
         // fetch book image from cache/download image
-        store.fetchBookImage(url: book.image, key: book.isbn10, completion: { [weak self] result in
+        EcsStore.shared.ecsFetchImage(url: book.image, key: book.isbn10, completion: { [weak self] result in
             guard case let .success(uIImage) = result else {
                 self?.image.image = nil
                 return

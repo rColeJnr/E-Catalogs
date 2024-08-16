@@ -13,7 +13,7 @@ enum BooksResult {
     case failure(Error)
 }
 
-enum ImageResult {
+enum EcsImageResult {
     case success(UIImage)
     case failure(Error)
 }
@@ -24,20 +24,9 @@ enum ImageError: Error {
 
 class BookStore {
     
-    let session: URLSession = {
-        let config = URLSessionConfiguration.default
-        return URLSession(configuration: config)
-    }()
+    private let session: URLSession = EcsStore.shared.session
     
-    let persistentContainer: NSPersistentCloudKitContainer = {
-        let container = NSPersistentCloudKitContainer(name: "EcsCoreData")
-        container.loadPersistentStores(completionHandler: {description, error in
-            if let error = error {
-                print("Error setting up core data: \(error)")
-            }
-        })
-        return container
-    }()
+    private let persistentContainer: NSPersistentCloudKitContainer = EcsStore.shared.persistentContainer
     
     func fetchFictionBestsellers(completion: @escaping (BooksResult) -> Void) {
         let url = BookApi.fictionBestsellersUrl
@@ -97,16 +86,6 @@ class BookStore {
             }
             
         }
-    }
-    
-    /// Download the image from the image urlString, the image is cached during this function call.
-    func fetchBookImage(url: NSURL?, key: String?, completion: @escaping (ImageResult) -> Void) {
-        guard 
-            let imageURL = url as URL?,
-            let keyString = key else {
-            return
-        }
-        fetchImage(url: imageURL, key: keyString, session: session, completion: completion)
     }
     
     /// Fetch core data for previously cached books
