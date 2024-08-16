@@ -19,7 +19,6 @@ class MovieStore {
         let url = MovieApi.fetchTrendingMovies(page: page)
         let request = URLRequest(url: url)
         let task = EcsStore.shared.session.dataTask(with: request, completionHandler: { (data, _, error) -> Void in
-            print(url.absoluteString)
             
            self.processMovieResponseRequest(data: data, error: error, completion: { result in
                 OperationQueue.main.addOperation {

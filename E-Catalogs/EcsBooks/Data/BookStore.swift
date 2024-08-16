@@ -64,10 +64,19 @@ class BookStore {
             return
         }
         
+        let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
+        
+        
         persistentContainer.performBackgroundTask { context in
+   
             let result = BookApi.books(fromJson: jsonData, into: context)
             
+            // MARK: - TODO(remove from cache before caching new data)
+//            let viewContext = persistentContainer.viewContext
+//            viewContext.delete(NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "Book", in: viewContext)!, insertInto: viewContext))
+            
             do {
+                
                 try context.save()
             } catch {
                 print("Error saving to core data: \(error)")

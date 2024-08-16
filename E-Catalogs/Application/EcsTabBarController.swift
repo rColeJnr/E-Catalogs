@@ -9,9 +9,9 @@ import UIKit
 
 class EcsTabBarController: UITabBarController {
     
-    static var bookStore: BookStore = BookStore()
-    static var movieStore: MovieStore = MovieStore()
-//    var animeStore: AnimeStore!
+    static let bookStore: BookStore = BookStore()
+    static let movieStore: MovieStore = MovieStore()
+    static let animeStore: AnimeStore! = AnimeStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()

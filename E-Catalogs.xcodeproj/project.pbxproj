@@ -16,7 +16,7 @@
 		7538EF5D2C64CC9A0066BD1D /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF5C2C64CC9A0066BD1D /* BookViewController.swift */; };
 		7538EF632C64CF310066BD1D /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF622C64CF310066BD1D /* AnimeViewController.swift */; };
 		7538EF672C650FB20066BD1D /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF662C650FB20066BD1D /* BookListView.swift */; };
-		7538EF692C650FD20066BD1D /* AnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF682C650FD20066BD1D /* AnimeListView.swift */; };
+		7538EF692C650FD20066BD1D /* AnimeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF682C650FD20066BD1D /* AnimeErrorView.swift */; };
 		7538EF6D2C652AD10066BD1D /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF6C2C652AD10066BD1D /* BookCollectionViewCell.swift */; };
 		7538EF722C652D260066BD1D /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF712C652D260066BD1D /* BookResponse.swift */; };
 		7538EF762C6535F80066BD1D /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF752C6535F80066BD1D /* BookApi.swift */; };
@@ -43,6 +43,18 @@
 		7538EFEB2C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFE92C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift */; };
 		7538EFEE2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFED2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift */; };
 		7538EFF02C6F46ED0066BD1D /* EcsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFEF2C6F46ED0066BD1D /* EcsStore.swift */; };
+		7538EFF42C6FA2F70066BD1D /* AnimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFF32C6FA2F70066BD1D /* AnimeView.swift */; };
+		7538EFF62C6FA5250066BD1D /* AnimeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFF52C6FA5250066BD1D /* AnimeStore.swift */; };
+		7538EFF82C6FA5330066BD1D /* AnimeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFF72C6FA5330066BD1D /* AnimeApi.swift */; };
+		7538EFFC2C6FA5500066BD1D /* AnimeApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFFB2C6FA5500066BD1D /* AnimeApiError.swift */; };
+		7538EFFF2C6FA6810066BD1D /* NetworkAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFFE2C6FA6810066BD1D /* NetworkAnime.swift */; };
+		7538F0022C6FB2460066BD1D /* Anime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F0002C6FB2460066BD1D /* Anime+CoreDataClass.swift */; };
+		7538F0152C6FB2E00066BD1D /* Anime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F0142C6FB2E00066BD1D /* Anime+CoreDataProperties.swift */; };
+		7538F0172C6FC92F0066BD1D /* AnimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F0162C6FC92F0066BD1D /* AnimeViewModel.swift */; };
+		7538F0192C6FD0E20066BD1D /* AnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F0182C6FD0E20066BD1D /* AnimeListView.swift */; };
+		7538F01B2C6FD0FE0066BD1D /* AnimeLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F01A2C6FD0FE0066BD1D /* AnimeLoadingView.swift */; };
+		7538F01D2C6FD22E0066BD1D /* AnimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F01C2C6FD22E0066BD1D /* AnimeRow.swift */; };
+		7538F01F2C6FEC7A0066BD1D /* AnimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F01E2C6FEC7A0066BD1D /* AnimeResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +69,7 @@
 		7538EF5C2C64CC9A0066BD1D /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		7538EF622C64CF310066BD1D /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
 		7538EF662C650FB20066BD1D /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
-		7538EF682C650FD20066BD1D /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
+		7538EF682C650FD20066BD1D /* AnimeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeErrorView.swift; sourceTree = "<group>"; };
 		7538EF6C2C652AD10066BD1D /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		7538EF712C652D260066BD1D /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResponse.swift; sourceTree = "<group>"; };
 		7538EF752C6535F80066BD1D /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
@@ -71,8 +83,8 @@
 		7538EF972C688D520066BD1D /* BookFavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFavoriteListView.swift; sourceTree = "<group>"; };
 		7538EFAF2C69D6390066BD1D /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		7538EFB02C69D6390066BD1D /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
-		7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "E-Catalogs/EcsBooks/Data/Book+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "E-Catalogs/EcsBooks/Data/Book+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7538EFBF2C6ABC250066BD1D /* EcsObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsObservable.swift; sourceTree = "<group>"; };
 		7538EFC12C6AC3700066BD1D /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		7538EFCF2C6ADF910066BD1D /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +96,18 @@
 		7538EFE92C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieResponse+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7538EFED2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieResponse+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7538EFEF2C6F46ED0066BD1D /* EcsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsStore.swift; sourceTree = "<group>"; };
+		7538EFF32C6FA2F70066BD1D /* AnimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeView.swift; sourceTree = "<group>"; };
+		7538EFF52C6FA5250066BD1D /* AnimeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeStore.swift; sourceTree = "<group>"; };
+		7538EFF72C6FA5330066BD1D /* AnimeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeApi.swift; sourceTree = "<group>"; };
+		7538EFFB2C6FA5500066BD1D /* AnimeApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeApiError.swift; sourceTree = "<group>"; };
+		7538EFFE2C6FA6810066BD1D /* NetworkAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAnime.swift; sourceTree = "<group>"; };
+		7538F0002C6FB2460066BD1D /* Anime+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7538F0142C6FB2E00066BD1D /* Anime+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7538F0162C6FC92F0066BD1D /* AnimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewModel.swift; sourceTree = "<group>"; };
+		7538F0182C6FD0E20066BD1D /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
+		7538F01A2C6FD0FE0066BD1D /* AnimeLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeLoadingView.swift; sourceTree = "<group>"; };
+		7538F01C2C6FD22E0066BD1D /* AnimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRow.swift; sourceTree = "<group>"; };
+		7538F01E2C6FEC7A0066BD1D /* AnimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,12 +195,11 @@
 		7538EF4B2C64B83D0066BD1D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */,
+				7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */,
 				7538EF712C652D260066BD1D /* BookResponse.swift */,
 				7538EF752C6535F80066BD1D /* BookApi.swift */,
 				7538EF7A2C653F2D0066BD1D /* BookStore.swift */,
-				7538EF702C652D110066BD1D /* Model */,
-				7538EF6B2C6512DC0066BD1D /* Network */,
-				7538EF6A2C6512D10066BD1D /* CoreData */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -194,6 +217,10 @@
 		7538EF4D2C64BBE60066BD1D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7538EFFD2C6FA6790066BD1D /* model */,
+				7538EFF52C6FA5250066BD1D /* AnimeStore.swift */,
+				7538EFF72C6FA5330066BD1D /* AnimeApi.swift */,
+				7538EFFB2C6FA5500066BD1D /* AnimeApiError.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -237,7 +264,12 @@
 		7538EF552C64CA130066BD1D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7538EF682C650FD20066BD1D /* AnimeListView.swift */,
+				7538EF682C650FD20066BD1D /* AnimeErrorView.swift */,
+				7538F0182C6FD0E20066BD1D /* AnimeListView.swift */,
+				7538F01C2C6FD22E0066BD1D /* AnimeRow.swift */,
+				7538EFF32C6FA2F70066BD1D /* AnimeView.swift */,
+				7538F0162C6FC92F0066BD1D /* AnimeViewModel.swift */,
+				7538F01A2C6FD0FE0066BD1D /* AnimeLoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,27 +286,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		7538EF6A2C6512D10066BD1D /* CoreData */ = {
+		7538EFFD2C6FA6790066BD1D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				7538EFBB2C6A99900066BD1D /* Book+CoreDataClass.swift */,
-				7538EFBC2C6A99900066BD1D /* Book+CoreDataProperties.swift */,
+				7538F0142C6FB2E00066BD1D /* Anime+CoreDataProperties.swift */,
+				7538F0002C6FB2460066BD1D /* Anime+CoreDataClass.swift */,
+				7538EFFE2C6FA6810066BD1D /* NetworkAnime.swift */,
+				7538F01E2C6FEC7A0066BD1D /* AnimeResponse.swift */,
 			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		7538EF6B2C6512DC0066BD1D /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		7538EF702C652D110066BD1D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,35 +371,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				7538EF4F2C64C9EB0066BD1D /* EcsTabBarController.swift in Sources */,
+				7538F01F2C6FEC7A0066BD1D /* AnimeResponse.swift in Sources */,
 				7538EF112C640CFD0066BD1D /* AppDelegate.swift in Sources */,
 				7538EF8E2C6754870066BD1D /* BookFavoriteViewController.swift in Sources */,
 				7538EFEE2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift in Sources */,
 				7538EFBD2C6A99900066BD1D /* Book+CoreDataClass.swift in Sources */,
+				7538F0172C6FC92F0066BD1D /* AnimeViewModel.swift in Sources */,
 				7538EFEB2C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift in Sources */,
 				7538EFBE2C6A99900066BD1D /* Book+CoreDataProperties.swift in Sources */,
 				7538EFC02C6ABC250066BD1D /* EcsObservable.swift in Sources */,
 				7538EFE62C6B5F4D0066BD1D /* MovieApi.swift in Sources */,
 				7538EF132C640CFD0066BD1D /* SceneDelegate.swift in Sources */,
 				7538EF982C688D520066BD1D /* BookFavoriteListView.swift in Sources */,
+				7538F0022C6FB2460066BD1D /* Anime+CoreDataClass.swift in Sources */,
 				7538EF7B2C653F2D0066BD1D /* BookStore.swift in Sources */,
 				7538EF7F2C654ED90066BD1D /* EcsImageFetcher.swift in Sources */,
+				7538F0192C6FD0E20066BD1D /* AnimeListView.swift in Sources */,
 				7538EFD12C6ADF910066BD1D /* MovieDetailsViewController.swift in Sources */,
+				7538EFF42C6FA2F70066BD1D /* AnimeView.swift in Sources */,
 				7538EF7D2C6546B80066BD1D /* EcsImageStore.swift in Sources */,
 				7538EFC22C6AC3700066BD1D /* MovieViewModel.swift in Sources */,
 				7538EFF02C6F46ED0066BD1D /* EcsStore.swift in Sources */,
+				7538F01D2C6FD22E0066BD1D /* AnimeRow.swift in Sources */,
 				7538EF582C64CAE50066BD1D /* EcsExtensions.swift in Sources */,
 				7538EF8A2C66B91E0066BD1D /* BookDetailsView.swift in Sources */,
 				7538EF632C64CF310066BD1D /* AnimeViewController.swift in Sources */,
-				7538EF692C650FD20066BD1D /* AnimeListView.swift in Sources */,
+				7538EF692C650FD20066BD1D /* AnimeErrorView.swift in Sources */,
+				7538EFF82C6FA5330066BD1D /* AnimeApi.swift in Sources */,
+				7538F01B2C6FD0FE0066BD1D /* AnimeLoadingView.swift in Sources */,
 				7538EF722C652D260066BD1D /* BookResponse.swift in Sources */,
+				7538EFFC2C6FA5500066BD1D /* AnimeApiError.swift in Sources */,
 				7538EFDF2C6B26330066BD1D /* MovieTableViewCell.swift in Sources */,
 				7538EF672C650FB20066BD1D /* BookListView.swift in Sources */,
 				7538EF6D2C652AD10066BD1D /* BookCollectionViewCell.swift in Sources */,
+				7538F0152C6FB2E00066BD1D /* Anime+CoreDataProperties.swift in Sources */,
 				7538EFB12C69D6390066BD1D /* MovieViewController.swift in Sources */,
 				7538EF5D2C64CC9A0066BD1D /* BookViewController.swift in Sources */,
 				7538EF792C65362D0066BD1D /* EcsCoreData.xcdatamodeld in Sources */,
+				7538EFFF2C6FA6810066BD1D /* NetworkAnime.swift in Sources */,
 				7538EF762C6535F80066BD1D /* BookApi.swift in Sources */,
 				7538EFE82C6B63730066BD1D /* MovieStore.swift in Sources */,
+				7538EFF62C6FA5250066BD1D /* AnimeStore.swift in Sources */,
 				7538EF882C66B71B0066BD1D /* BookDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
