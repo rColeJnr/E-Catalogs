@@ -12,12 +12,6 @@ struct AnimeApi {
     
     private static let baseUrl = "https://api.jikan.moe/"
     
-    private static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy=MM-dd HH:mm:ss"
-        return formatter
-    }()
-    
     static var fetchTopAnime: URL {
         return animeUrl(method: .fetchTopAnime, parameters: nil)
     }
@@ -48,11 +42,11 @@ struct AnimeApi {
             guard
                 let jsonDictionary = jsonObject as? [AnyHashable:Any],
                 let results = jsonDictionary["data"] as? [[String:Any]] else {
-                print("ANIME JSON STRUCTURE does not match expected")
-                return .failure(AnimeApiError.parsing(nil))
+                print("Failed to parse anime jsonDictionary")
+                    return .failure(AnimeApiError.parsing(nil))
             }
             
-            // WE need to remove currently cached anime before calling topAnime
+            // TODO WE need to remove currently cached anime before calling topAnime
             
             var finalAnimes = [Anime]()
             for anime in results {
@@ -63,7 +57,6 @@ struct AnimeApi {
             
             return .success(finalAnimes)
         } catch {
-            print("Error decoding error")
             print(String(describing: error))
             return .failure(AnimeApiError.parsing(error as? DecodingError))
         }
@@ -74,16 +67,22 @@ struct AnimeApi {
         
         guard
             let animeId = networkAnime["mal_id"] as? Int,
-//            let images = networkAnime["images"] as? NetworkAnime.Image,
             let title = networkAnime["title"] as? String,
             let source = networkAnime["source"] as? String,
-            let episodes = networkAnime["episodes"] as? Int,
-            let airing = networkAnime["airing"] as? Bool,
             let duration = networkAnime["duration"] as? String,
             let rating = networkAnime["rating"] as? String,
             let rank = networkAnime["rank"] as? Int,
-            let background = networkAnime["background"] as? String,
             let synopsis = networkAnime["synopsis"] as? String else {
+            print("Failed to parse anime json")
+            return nil
+        }
+        
+        guard
+            let images = networkAnime["images"] as? [String:Any],
+            let jpg = images["jpg"] as? [String:Any],
+            let imageUrlString = jpg["image_url"] as? String,
+            let imageUrl = URL(string: imageUrlString) else {
+            print("Failed to parse anime image")
             return nil
         }
         
@@ -104,21 +103,13 @@ struct AnimeApi {
         context.performAndWait({
             anime = Anime(context: context)
             anime.animeId = Int32(animeId)
-            let image = AnimeImage(context: context)
-            let jpg = AnimeJpg(context: context)
-//            jpg.imageUrl = NSURL(string: images.jpg.image_url)
-            image.jpg = jpg
-            
-            anime.images = image
-            anime.title = title
-            anime.source = source
-            anime.episodes = Int32(episodes)
-            anime.airing = airing
             anime.duration = duration
-            anime.rating = rating
+            anime.image = imageUrl as NSURL
             anime.rank = Int32(rank)
+            anime.rating = rating
+            anime.source = source
             anime.synopsis = synopsis
-            anime.background = background
+            anime.title = title
         })
         return anime
     }

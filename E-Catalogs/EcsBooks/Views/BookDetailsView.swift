@@ -58,29 +58,12 @@ class BookDetailsView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private let amazonLink = {
-        let view = UILabel()
-        view.text = "Show on amazon"
-        view.font = .systemFont(ofSize: 26, weight: .medium)
-        view.textColor = .label
-        view.textAlignment = .center
-        view.backgroundColor = .secondarySystemFill
-        view.isUserInteractionEnabled = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    // MARK: - TAP GESTURES
-    @objc private func onShowOnAmazon(_ sender: Any) {
-        print("Open web page")
-    }
-    
+
     // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        addSubviews(image, overview, author, rank, rankLastWeek, weeksOnList, amazonLink)
-        amazonLink.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onShowOnAmazon(_:))))
+        addSubviews(image, overview, author, rank, rankLastWeek, weeksOnList)
         addConstraints()
     }
     
@@ -117,13 +100,6 @@ class BookDetailsView: UIView {
             weeksOnList.topAnchor.constraint(equalTo: rankLastWeek.bottomAnchor, constant: 10),
             weeksOnList.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
             weeksOnList.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            amazonLink.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            amazonLink.heightAnchor.constraint(equalToConstant: 40),
-            amazonLink.leadingAnchor.constraint(equalTo: leadingAnchor),
-            amazonLink.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            
         ])
     }
     

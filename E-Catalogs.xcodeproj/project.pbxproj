@@ -20,7 +20,6 @@
 		7538EF6D2C652AD10066BD1D /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF6C2C652AD10066BD1D /* BookCollectionViewCell.swift */; };
 		7538EF722C652D260066BD1D /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF712C652D260066BD1D /* BookResponse.swift */; };
 		7538EF762C6535F80066BD1D /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF752C6535F80066BD1D /* BookApi.swift */; };
-		7538EF792C65362D0066BD1D /* EcsCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF772C65362D0066BD1D /* EcsCoreData.xcdatamodeld */; };
 		7538EF7B2C653F2D0066BD1D /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7A2C653F2D0066BD1D /* BookStore.swift */; };
 		7538EF7D2C6546B80066BD1D /* EcsImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7C2C6546B80066BD1D /* EcsImageStore.swift */; };
 		7538EF7F2C654ED90066BD1D /* EcsImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EF7E2C654ED90066BD1D /* EcsImageFetcher.swift */; };
@@ -49,12 +48,14 @@
 		7538EFFC2C6FA5500066BD1D /* AnimeApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFFB2C6FA5500066BD1D /* AnimeApiError.swift */; };
 		7538EFFF2C6FA6810066BD1D /* NetworkAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538EFFE2C6FA6810066BD1D /* NetworkAnime.swift */; };
 		7538F0022C6FB2460066BD1D /* Anime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F0002C6FB2460066BD1D /* Anime+CoreDataClass.swift */; };
-		7538F0152C6FB2E00066BD1D /* Anime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F0142C6FB2E00066BD1D /* Anime+CoreDataProperties.swift */; };
 		7538F0172C6FC92F0066BD1D /* AnimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F0162C6FC92F0066BD1D /* AnimeViewModel.swift */; };
 		7538F0192C6FD0E20066BD1D /* AnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F0182C6FD0E20066BD1D /* AnimeListView.swift */; };
 		7538F01B2C6FD0FE0066BD1D /* AnimeLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F01A2C6FD0FE0066BD1D /* AnimeLoadingView.swift */; };
 		7538F01D2C6FD22E0066BD1D /* AnimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F01C2C6FD22E0066BD1D /* AnimeRow.swift */; };
 		7538F01F2C6FEC7A0066BD1D /* AnimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538F01E2C6FEC7A0066BD1D /* AnimeResponse.swift */; };
+		756342AA2C706BC500B649BE /* EcsCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 756342A82C706BC500B649BE /* EcsCoreData.xcdatamodeld */; };
+		756342AC2C706D1D00B649BE /* Anime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756342AB2C706D1D00B649BE /* Anime+CoreDataProperties.swift */; };
+		756342B02C70A2C300B649BE /* AnimeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756342AF2C70A2C300B649BE /* AnimeDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +74,6 @@
 		7538EF6C2C652AD10066BD1D /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		7538EF712C652D260066BD1D /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResponse.swift; sourceTree = "<group>"; };
 		7538EF752C6535F80066BD1D /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
-		7538EF782C65362D0066BD1D /* EcsCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EcsCoreData.xcdatamodel; sourceTree = "<group>"; };
 		7538EF7A2C653F2D0066BD1D /* BookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
 		7538EF7C2C6546B80066BD1D /* EcsImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsImageStore.swift; sourceTree = "<group>"; };
 		7538EF7E2C654ED90066BD1D /* EcsImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsImageFetcher.swift; sourceTree = "<group>"; };
@@ -93,21 +93,23 @@
 		7538EFDE2C6B26330066BD1D /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		7538EFE52C6B5F4D0066BD1D /* MovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApi.swift; sourceTree = "<group>"; };
 		7538EFE72C6B63730066BD1D /* MovieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStore.swift; sourceTree = "<group>"; };
-		7538EFE92C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieResponse+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		7538EFED2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieResponse+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7538EFE92C6DE8180066BD1D /* MovieResponse+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MovieResponse+CoreDataClass.swift"; path = "E-Catalogs/EcsMovies/Data/MovieResponse+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7538EFED2C6DE9130066BD1D /* MovieResponse+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MovieResponse+CoreDataProperties.swift"; path = "E-Catalogs/EcsMovies/Data/MovieResponse+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7538EFEF2C6F46ED0066BD1D /* EcsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsStore.swift; sourceTree = "<group>"; };
 		7538EFF32C6FA2F70066BD1D /* AnimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeView.swift; sourceTree = "<group>"; };
 		7538EFF52C6FA5250066BD1D /* AnimeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeStore.swift; sourceTree = "<group>"; };
 		7538EFF72C6FA5330066BD1D /* AnimeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeApi.swift; sourceTree = "<group>"; };
 		7538EFFB2C6FA5500066BD1D /* AnimeApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeApiError.swift; sourceTree = "<group>"; };
 		7538EFFE2C6FA6810066BD1D /* NetworkAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAnime.swift; sourceTree = "<group>"; };
-		7538F0002C6FB2460066BD1D /* Anime+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		7538F0142C6FB2E00066BD1D /* Anime+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7538F0002C6FB2460066BD1D /* Anime+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Anime+CoreDataClass.swift"; path = "E-Catalogs/EcsAnimes/Data/Anime+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7538F0162C6FC92F0066BD1D /* AnimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewModel.swift; sourceTree = "<group>"; };
 		7538F0182C6FD0E20066BD1D /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
 		7538F01A2C6FD0FE0066BD1D /* AnimeLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeLoadingView.swift; sourceTree = "<group>"; };
 		7538F01C2C6FD22E0066BD1D /* AnimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRow.swift; sourceTree = "<group>"; };
 		7538F01E2C6FEC7A0066BD1D /* AnimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeResponse.swift; sourceTree = "<group>"; };
+		756342A92C706BC500B649BE /* EcsCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EcsCoreData.xcdatamodel; sourceTree = "<group>"; };
+		756342AB2C706D1D00B649BE /* Anime+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		756342AF2C70A2C300B649BE /* AnimeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +150,7 @@
 				7538EF192C640CFE0066BD1D /* Assets.xcassets */,
 				7538EF1B2C640CFE0066BD1D /* LaunchScreen.storyboard */,
 				7538EF1E2C640CFE0066BD1D /* Info.plist */,
-				7538EF772C65362D0066BD1D /* EcsCoreData.xcdatamodeld */,
+				756342A82C706BC500B649BE /* EcsCoreData.xcdatamodeld */,
 			);
 			path = "E-Catalogs";
 			sourceTree = "<group>";
@@ -217,6 +219,8 @@
 		7538EF4D2C64BBE60066BD1D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				756342AB2C706D1D00B649BE /* Anime+CoreDataProperties.swift */,
+				7538F0002C6FB2460066BD1D /* Anime+CoreDataClass.swift */,
 				7538EFFD2C6FA6790066BD1D /* model */,
 				7538EFF52C6FA5250066BD1D /* AnimeStore.swift */,
 				7538EFF72C6FA5330066BD1D /* AnimeApi.swift */,
@@ -266,6 +270,7 @@
 			children = (
 				7538EF682C650FD20066BD1D /* AnimeErrorView.swift */,
 				7538F0182C6FD0E20066BD1D /* AnimeListView.swift */,
+				756342AF2C70A2C300B649BE /* AnimeDetailsView.swift */,
 				7538F01C2C6FD22E0066BD1D /* AnimeRow.swift */,
 				7538EFF32C6FA2F70066BD1D /* AnimeView.swift */,
 				7538F0162C6FC92F0066BD1D /* AnimeViewModel.swift */,
@@ -289,8 +294,6 @@
 		7538EFFD2C6FA6790066BD1D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				7538F0142C6FB2E00066BD1D /* Anime+CoreDataProperties.swift */,
-				7538F0002C6FB2460066BD1D /* Anime+CoreDataClass.swift */,
 				7538EFFE2C6FA6810066BD1D /* NetworkAnime.swift */,
 				7538F01E2C6FEC7A0066BD1D /* AnimeResponse.swift */,
 			);
@@ -394,20 +397,21 @@
 				7538EFF02C6F46ED0066BD1D /* EcsStore.swift in Sources */,
 				7538F01D2C6FD22E0066BD1D /* AnimeRow.swift in Sources */,
 				7538EF582C64CAE50066BD1D /* EcsExtensions.swift in Sources */,
+				756342B02C70A2C300B649BE /* AnimeDetailsView.swift in Sources */,
 				7538EF8A2C66B91E0066BD1D /* BookDetailsView.swift in Sources */,
 				7538EF632C64CF310066BD1D /* AnimeViewController.swift in Sources */,
 				7538EF692C650FD20066BD1D /* AnimeErrorView.swift in Sources */,
+				756342AA2C706BC500B649BE /* EcsCoreData.xcdatamodeld in Sources */,
 				7538EFF82C6FA5330066BD1D /* AnimeApi.swift in Sources */,
+				756342AC2C706D1D00B649BE /* Anime+CoreDataProperties.swift in Sources */,
 				7538F01B2C6FD0FE0066BD1D /* AnimeLoadingView.swift in Sources */,
 				7538EF722C652D260066BD1D /* BookResponse.swift in Sources */,
 				7538EFFC2C6FA5500066BD1D /* AnimeApiError.swift in Sources */,
 				7538EFDF2C6B26330066BD1D /* MovieTableViewCell.swift in Sources */,
 				7538EF672C650FB20066BD1D /* BookListView.swift in Sources */,
 				7538EF6D2C652AD10066BD1D /* BookCollectionViewCell.swift in Sources */,
-				7538F0152C6FB2E00066BD1D /* Anime+CoreDataProperties.swift in Sources */,
 				7538EFB12C69D6390066BD1D /* MovieViewController.swift in Sources */,
 				7538EF5D2C64CC9A0066BD1D /* BookViewController.swift in Sources */,
-				7538EF792C65362D0066BD1D /* EcsCoreData.xcdatamodeld in Sources */,
 				7538EFFF2C6FA6810066BD1D /* NetworkAnime.swift in Sources */,
 				7538EF762C6535F80066BD1D /* BookApi.swift in Sources */,
 				7538EFE82C6B63730066BD1D /* MovieStore.swift in Sources */,
@@ -635,12 +639,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7538EF772C65362D0066BD1D /* EcsCoreData.xcdatamodeld */ = {
+		756342A82C706BC500B649BE /* EcsCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7538EF782C65362D0066BD1D /* EcsCoreData.xcdatamodel */,
+				756342A92C706BC500B649BE /* EcsCoreData.xcdatamodel */,
 			);
-			currentVersion = 7538EF782C65362D0066BD1D /* EcsCoreData.xcdatamodel */;
+			currentVersion = 756342A92C706BC500B649BE /* EcsCoreData.xcdatamodel */;
 			name = EcsCoreData.xcdatamodeld;
 			path = "/Users/rcolejnr/xCodeProjects/E-Catalogs/E-Catalogs/EcsCoreData.xcdatamodeld";
 			sourceTree = "<group>";

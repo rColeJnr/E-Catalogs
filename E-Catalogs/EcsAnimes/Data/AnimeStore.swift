@@ -16,14 +16,27 @@ enum AnimeResult {
 class AnimeStore: ObservableObject {
     
     @Published var isLoading: Bool = false
+    @Published var errorMsg: String? = nil
     
  
     func fetchTopAnime(completion: @escaping (AnimeResult) -> Void) {
         isLoading = true
+        errorMsg = nil
         
         let url = AnimeApi.fetchTopAnime
         let request = URLRequest(url: url)
         let task = EcsStore.shared.session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+
+//            if let jsonData = data {
+//                if let josnString = String(data: jsonData, encoding: .utf8) {
+//                    print(josnString)
+//                } else if let requestError = error {
+//                        print("error fetching: \(requestError)")
+//                    }
+//            } else {
+//                print("unxecpected error")
+//            }
+
             
            self.processAnimeRequest(data: data, response: response, error: error, completion: { result in
                 OperationQueue.main.addOperation {
@@ -37,11 +50,11 @@ class AnimeStore: ObservableObject {
 
     private func processAnimeRequest(data: Data?, response: URLResponse?, error: Error?, completion: @escaping (AnimeResult) -> Void) {
         if let error = error as? URLError {
-            print("ERror urlError")
+            errorMsg = error.localizedDescription
             completion(.failure(AnimeApiError.url(error)))
         } else if let response = response as? HTTPURLResponse,
                   !(200...299).contains(response.statusCode) {
-            print("Error 200.2099")
+            self.errorMsg = "http response error"
             completion(.failure(AnimeApiError.badResponse(statusCode: response.statusCode)))
         } else if let data = data {
             EcsStore.shared.persistentContainer.performBackgroundTask{context in
@@ -51,6 +64,7 @@ class AnimeStore: ObservableObject {
                 do {
                     try context.save()
                 } catch {
+                    self.errorMsg = "Error saving to core data"
                     print("Error saving to core data: \(error)")
                     completion(.failure(AnimeApiError.coreDataError))
                     return
@@ -61,10 +75,8 @@ class AnimeStore: ObservableObject {
                     let animeIds = array.map { return $0.objectID }
                     let viewContext = EcsStore.shared.persistentContainer.viewContext
                     let viewContextAnimes = animeIds.map { return viewContext.object(with: $0) } as! [Anime]
-                    print("success viewcontexts: \(viewContextAnimes.count)")
                     completion(.success(viewContextAnimes))
                 case .failure:
-                    print("error return viewContextAnimes")
                     print(String(describing: result))
                     completion(result)
                 }
@@ -80,10 +92,8 @@ class AnimeStore: ObservableObject {
         viewContext.perform {
             do {
                 let allMovies = try viewContext.fetch(fetchRequest)
-                print("did get all cunts \(allMovies.count)")
                 completion(.success(allMovies))
             } catch {
-                print("Error parsing coredata all animes")
                 completion(.failure(AnimeApiError.coreDataError))
             }
         }

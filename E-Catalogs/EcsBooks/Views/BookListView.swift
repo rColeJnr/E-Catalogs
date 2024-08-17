@@ -25,6 +25,16 @@ class BookListView: UIView {
         return view
     }()
     
+    private let errorLabel = {
+        let view = UILabel()
+        view.text = "error fetching books"
+        view.font = .systemFont(ofSize: 20, weight: .medium)
+        view.textColor = .systemRed
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let optionsButton = {
         var viewConfig = UIButton.Configuration.gray()
         viewConfig.title = "Fiction"
@@ -32,7 +42,7 @@ class BookListView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private let favoriteButton: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
@@ -71,19 +81,18 @@ class BookListView: UIView {
     override init(frame: CGRect){
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        addSubviews(categoryLabel, optionsButton, favoriteButton, collectionView, spinner)
+        addSubviews(categoryLabel, optionsButton, favoriteButton, collectionView, spinner, errorLabel)
         addConstraints()
         spinner.startAnimating()
         // Fetch fiction bestsellers on init
         bookStore.fetchBestsellers(0) { _ in // on Completion, call the cached data
-            self.fetchCachedFiction()
+            self.fetchCachedFiction(0)
         }
         favoriteButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFavoriteClick(_:))))
        
         let actions: [UIAction] = options.map {
             let action = UIAction(title: $0, handler:{ action in
                 self.optionsButton.configuration?.title = action.title
-                
                 self.fetchSelectedOption(index: self.options.firstIndex(of: action.title)!)
                
             })
@@ -129,35 +138,37 @@ class BookListView: UIView {
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            errorLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            errorLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 
     /// Fetch bestselling books when diferent menu option is selected
     private func fetchSelectedOption(index: Int) {
-        bookStore.fetchBestsellers(index) {[weak self] booksResult in
+        self.errorLabel.isHidden = true
+        bookStore.fetchBestsellers(index) { _ in
+            self.fetchCachedFiction(index)
+        }
+    }
+    
+    private func fetchCachedFiction(_ index: Int) {
+        self.spinner.startAnimating()
+        self.books.removeAll()
+        bookStore.fetchAllBooks(BestsellerListName.allCases[index].rawValue) { [weak self] booksResult in
             switch booksResult {
             case .success(let books):
                 self?.books = books
                 self?.collectionView.reloadData()
+                self?.collectionView.setContentOffset(.zero, animated: true)
             case .failure(_):
                 self?.books.removeAll()
                 self?.collectionView.reloadData()
             }
         }
-        spinner.stopAnimating()
-    }
-    
-    private func fetchCachedFiction() {
-        bookStore.fetchAllBooks(completion: { [weak self] booksResult in
-            switch booksResult {
-            case .success(let books):
-                self?.books = books
-                self?.collectionView.reloadData()
-            case .failure(_):
-                self?.books.removeAll()
-                self?.collectionView.reloadData()
-            }
-        })
+        if (self.books.isEmpty) {
+            errorLabel.isHidden = false
+        }
         spinner.stopAnimating()
     }
 }
@@ -207,4 +218,11 @@ extension BookListView: UICollectionViewDataSource, UICollectionViewDelegate, UI
 protocol BookListViewDelegate: AnyObject {
     func didSelectBook(vc: BookDetailsViewController)
     func navigateToFavorites(vc: BookFavoriteViewController)
+}
+
+enum BestsellerListName: String, CaseIterable {
+    case fiction = "hardcover-fiction"
+    case nonFiction = "hardcover-nonfiction"
+    case miscelaneous = "advice-how-to-and-miscellaneous"
+    case graphic = "graphic-books-and-manga"
 }

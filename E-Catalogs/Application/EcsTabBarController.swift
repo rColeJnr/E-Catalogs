@@ -23,9 +23,9 @@ class EcsTabBarController: UITabBarController {
         let bookVC = BookViewController()
         let moviesVC = MovieViewController()
 
-        bookVC.navigationItem.largeTitleDisplayMode = .automatic
+        bookVC.navigationItem.largeTitleDisplayMode = .inline
         moviesVC.navigationItem.largeTitleDisplayMode = .automatic
-        animeVC.navigationItem.largeTitleDisplayMode = .automatic
+        animeVC.navigationItem.largeTitleDisplayMode = .inline
         
         let bookNav = UINavigationController(rootViewController: bookVC)
         let moviesNav = UINavigationController(rootViewController: moviesVC)
@@ -34,7 +34,7 @@ class EcsTabBarController: UITabBarController {
         bookNav.tabBarItem = UITabBarItem(title: "Books", image: UIImage(systemName: "book"), tag: 1)
         moviesNav.tabBarItem = UITabBarItem(title: "Movies", image: UIImage(systemName: "movieclapper"), tag: 2)
         animeNav.tabBarItem = UITabBarItem(title: "Anime", image: UIImage(systemName: "figure.martial.arts"), tag: 3)
-        
+                
         setViewControllers([bookNav, moviesNav, animeNav], animated: true)
         
     }

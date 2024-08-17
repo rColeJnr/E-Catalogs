@@ -9,28 +9,25 @@ import SwiftUI
 
 struct AnimeListView: View {
     let animes: [Anime]
+    let viewWidth: CGFloat!
     
-    init(animes: [Anime]) {
+    init(_ viewWidth: CGFloat, animes: [Anime]) {
         self.animes = animes
+        self.viewWidth = viewWidth
     }
     
     var body: some View {
-
-                    VStack{
-                        AnimeRow(anime: animes.first!)
-                        Spacer()
-                        AnimeRow(anime: animes[1])
-                        Spacer()
-                        AnimeRow(anime: animes.last!)
-                        Spacer()
+        NavigationView{
+            List {
+                ForEach(animes) { anime in
+                    NavigationLink {
+                        AnimeDetailsView(anime: anime, viewWidth: viewWidth)
+                    } label: {
+                        AnimeRow(anime: anime, viewWidth: viewWidth)
                     }
-                    
-              
-        
+                }
+            }
+            .listStyle(.plain)
+        }
     }
 }
-
-//struct BreedListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//    }
-//}

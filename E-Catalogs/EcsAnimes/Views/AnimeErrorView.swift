@@ -13,18 +13,11 @@ struct AnimeErrorView: View {
     var body: some View {
         VStack {
             
-            Text("😿")
+            Text("🥲")
                 .font(.system(size: 80))
             
-            Text("ERror getting the shit")
-            
-//            Button {
-//                breedFetcher.fetchAllBreeds()
-//            } label: {
-//                Text("Try again")
-//            }
-
-            
+            Text("Error getting the good shit")
+                
         }
     }
 }

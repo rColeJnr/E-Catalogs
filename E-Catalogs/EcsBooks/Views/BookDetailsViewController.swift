@@ -26,4 +26,9 @@ class BookDetailsViewController: UIViewController {
         setupView(detailsView)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
 }

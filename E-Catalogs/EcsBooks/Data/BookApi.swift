@@ -62,9 +62,14 @@ struct BookApi {
                 return .failure(EcsError.invalidJsonData)
             }
             
+            guard let bestsellerList = books["list_name_encoded"] as? String else {
+                print("failed to parse list name")
+                return .failure(EcsError.invalidJsonData)
+            }
+            
             var finalBooks = [Book]()
             for bookJson in booksArray {
-                if let book = book(fromJson: bookJson, into: context) {
+                if let book = book(fromJson: bookJson, list: bestsellerList, into: context) {
                     finalBooks.append(book)
                 }
             }
@@ -82,7 +87,7 @@ struct BookApi {
     }
     
     /// Construct a book from JsonData, fetch CoreData for a match, if core data has book with same isbn10 return coreData book, else return book constructed from jsonData
-    private static func book(fromJson json: [String: Any], into context: NSManagedObjectContext) -> Book? {
+    private static func book(fromJson json: [String: Any], list: String,  into context: NSManagedObjectContext) -> Book? {
         guard
             let bookIsbn = json["primary_isbn10"] as? String,
             let rank = json["rank"] as? Int,
@@ -100,6 +105,7 @@ struct BookApi {
             return nil
         }
         
+        print(list)
         let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
         let predicate1 = NSPredicate(format: "isbn10 == \"\(bookIsbn)\"")
         let predicate2 = NSPredicate(format: "\(#keyPath(Book.title)) == \"\(title)\"")
@@ -129,6 +135,7 @@ struct BookApi {
             book.rankLastWeek = Int16(rankLastWeek)
             book.weeksOnLIst = Int16(weeksOnList)
             book.isFavorite = false
+            book.list = list
         })
         return book
     }

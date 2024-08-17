@@ -18,6 +18,7 @@ extension Book {
 
     @NSManaged public var amazonLiink: NSURL?
     @NSManaged public var author: String?
+    @NSManaged public var list: String?
     @NSManaged public var bookDescription: String?
     @NSManaged public var image: NSURL?
     @NSManaged public var isbn10: String?

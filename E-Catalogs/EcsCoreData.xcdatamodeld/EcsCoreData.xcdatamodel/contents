@@ -1,32 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="Anime" representedClassName="Anime" syncable="YES">
-        <attribute name="aired" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="AnimeAired"/>
-        <attribute name="airing" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="animeId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="background" optional="YES" attributeType="String"/>
         <attribute name="duration" optional="YES" attributeType="String"/>
-        <attribute name="episodes" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="genres" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[AnimeGenre]"/>
-        <attribute name="images" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="AnimeImage"/>
-        <attribute name="popularity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="NSURL"/>
         <attribute name="rank" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="rating" optional="YES" attributeType="String"/>
         <attribute name="source" optional="YES" attributeType="String"/>
         <attribute name="synopsis" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="AnimeAired" representedClassName="AnimeAired" syncable="YES" codeGenerationType="class">
-        <attribute name="string" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="AnimeGenre" representedClassName="AnimeGenre" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="AnimeImage" representedClassName="AnimeImage" syncable="YES" codeGenerationType="class">
-        <attribute name="jpg" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="AnimeJpg"/>
-    </entity>
-    <entity name="AnimeJpg" representedClassName="AnimeJpg" syncable="YES" codeGenerationType="class">
-        <attribute name="imageUrl" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="NSURL"/>
     </entity>
     <entity name="Book" representedClassName="Book" syncable="YES">
         <attribute name="amazonLiink" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="NSURL"/>
@@ -35,6 +17,7 @@
         <attribute name="image" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="NSURL"/>
         <attribute name="isbn10" optional="YES" attributeType="String"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="list" optional="YES" attributeType="String"/>
         <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="rankLastWeek" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>

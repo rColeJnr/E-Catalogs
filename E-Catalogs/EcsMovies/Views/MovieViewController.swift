@@ -35,7 +35,6 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         indicator.hidesWhenStopped = true
         footerIndicator.hidesWhenStopped = true
-    
         tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
         
         tableView.tableFooterView = footerIndicator

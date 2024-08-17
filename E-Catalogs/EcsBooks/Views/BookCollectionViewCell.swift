@@ -50,16 +50,6 @@ class BookCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private let showTranslation: UILabel = {
-        let view = UILabel()
-        view.textColor = .label
-        view.font = .systemFont(ofSize: 20, weight: .medium)
-        view.text = "Show translation"
-        view.isUserInteractionEnabled = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     // MARK: - Gestures
     // Response to user on click actions
     
@@ -87,20 +77,15 @@ class BookCollectionViewCell: UICollectionViewCell {
         }
     }
          
-    @objc private func onShowTranslation(_ sender: Any) {
-        print(book.description)
-    }
     
     // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .secondarySystemBackground
-        contentView.addSubviews(bookImage, title, author, favoriteButton, showTranslation)
+        contentView.addSubviews(bookImage, title, author, favoriteButton)
          
         favoriteButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFavoriteClicked(_:))))
-        showTranslation.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onShowTranslation(_:))))
-        
         addConstraints()
     }
     
@@ -114,7 +99,6 @@ class BookCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             title.heightAnchor.constraint(equalToConstant: 30),
             author.heightAnchor.constraint(equalToConstant: 30),
-            showTranslation.heightAnchor.constraint(equalToConstant: 40),
          
             bookImage.widthAnchor.constraint(equalToConstant: 120),
             favoriteButton.heightAnchor.constraint(equalToConstant: 30),
@@ -122,11 +106,8 @@ class BookCollectionViewCell: UICollectionViewCell {
             
             bookImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 4),
             bookImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            bookImage.bottomAnchor.constraint(equalTo: showTranslation.topAnchor, constant: 2),
-            
-            showTranslation.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 4),
-            showTranslation.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 2),
-            
+            bookImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 2),
+               
             title.topAnchor.constraint(equalTo: bookImage.topAnchor),
             title.leftAnchor.constraint(equalTo: bookImage.rightAnchor, constant: 4),
             title.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -2),
@@ -138,6 +119,10 @@ class BookCollectionViewCell: UICollectionViewCell {
             favoriteButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             favoriteButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -4),
         ])
+    }
+    
+    override func prepareForReuse() {
+        bookImage.image = nil
     }
     
     /// BInd book data to UI

@@ -64,16 +64,9 @@ class BookStore {
             return
         }
         
-        let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
-        
-        
         persistentContainer.performBackgroundTask { context in
    
             let result = BookApi.books(fromJson: jsonData, into: context)
-            
-            // MARK: - TODO(remove from cache before caching new data)
-//            let viewContext = persistentContainer.viewContext
-//            viewContext.delete(NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "Book", in: viewContext)!, insertInto: viewContext))
             
             do {
                 
@@ -98,10 +91,12 @@ class BookStore {
     }
     
     /// Fetch core data for previously cached books
-    func fetchAllBooks(completion: @escaping (BooksResult) -> Void) {
+    func fetchAllBooks(_ list: String, completion: @escaping (BooksResult) -> Void) {
         let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
         let sortByRank = NSSortDescriptor(key: #keyPath(Book.rank), ascending: true)
+        let predicate = NSPredicate(format: "\(#keyPath(Book.list)) == \"\(list)\"")
         
+        fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [sortByRank]
         
         let viewContext = persistentContainer.viewContext

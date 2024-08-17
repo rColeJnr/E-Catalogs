@@ -9,22 +9,26 @@ import SwiftUI
 
 struct AnimeView: View {
     
-    private let viewModel = AnimeViewModel()
+    private let isLoading: Bool!
     private let animes: [Anime]!
+    private let errorMsg: String?
+    private let viewWidth: CGFloat!
     
-    init(animes: [Anime]!) {
+    init(_ viewWidth: CGFloat, animes: [Anime]!, isLoading: Bool!, errorMsg: String? = nil) {
+        self.isLoading = isLoading
         self.animes = animes
+        self.errorMsg = errorMsg
+        self.viewWidth = viewWidth
     }
     
     var body: some View {
         
-        if viewModel.isLoading.value ?? true {
+        if isLoading {
             AnimeLoadingView()
-        } else if viewModel.errorMsg.value != nil {
+        } else if errorMsg != nil {
             AnimeErrorView()
         } else {
-            
-            AnimeListView(animes: animes)
+            AnimeListView.init(viewWidth, animes: animes)
         }
     }
 }

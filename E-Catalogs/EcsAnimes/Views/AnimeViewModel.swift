@@ -30,9 +30,7 @@ class AnimeViewModel {
         isLoading.value = animeStore?.isLoading
         animeStore?.fetchAllAnimes(completion: { [weak self] result in
             switch result {
-            case .success(let animes):
-                print("Fetch all animes: \(animes.count)")
-                self?.animes.value = animes
+            case .success(let animes):                self?.animes.value = animes
             case .failure(let animeApiError):
                 self?.errorMsg.value = animeApiError.localizedDescription
             }})
