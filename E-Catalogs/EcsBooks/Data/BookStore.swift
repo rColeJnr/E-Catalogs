@@ -69,7 +69,6 @@ class BookStore {
             let result = BookApi.books(fromJson: jsonData, into: context)
             
             do {
-                
                 try context.save()
             } catch {
                 print("Error saving to core data: \(error)")

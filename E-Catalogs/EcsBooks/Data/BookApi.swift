@@ -105,7 +105,6 @@ struct BookApi {
             return nil
         }
         
-        print(list)
         let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
         let predicate1 = NSPredicate(format: "isbn10 == \"\(bookIsbn)\"")
         let predicate2 = NSPredicate(format: "\(#keyPath(Book.title)) == \"\(title)\"")

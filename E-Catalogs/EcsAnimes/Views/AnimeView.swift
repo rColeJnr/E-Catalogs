@@ -14,7 +14,7 @@ struct AnimeView: View {
     private let errorMsg: String?
     private let viewWidth: CGFloat!
     
-    init(_ viewWidth: CGFloat, animes: [Anime]!, isLoading: Bool!, errorMsg: String? = nil) {
+    init(_ viewWidth: CGFloat, animes: [Anime]!, isLoading: Bool = true, errorMsg: String? = nil) {
         self.isLoading = isLoading
         self.animes = animes
         self.errorMsg = errorMsg
@@ -25,7 +25,7 @@ struct AnimeView: View {
         
         if isLoading {
             AnimeLoadingView()
-        } else if errorMsg != nil {
+        } else if animes.isEmpty {
             AnimeErrorView()
         } else {
             AnimeListView.init(viewWidth, animes: animes)

@@ -153,20 +153,24 @@ class BookListView: UIView {
     }
     
     private func fetchCachedFiction(_ index: Int) {
-        self.spinner.startAnimating()
-        self.books.removeAll()
+        spinner.startAnimating()
+        books.removeAll()
         bookStore.fetchAllBooks(BestsellerListName.allCases[index].rawValue) { [weak self] booksResult in
             switch booksResult {
             case .success(let books):
+                if !books.isEmpty {
+                    self?.errorLabel.isHidden = true
+                }
                 self?.books = books
                 self?.collectionView.reloadData()
                 self?.collectionView.setContentOffset(.zero, animated: true)
             case .failure(_):
+                self?.errorLabel.isHidden = false
                 self?.books.removeAll()
                 self?.collectionView.reloadData()
             }
         }
-        if (self.books.isEmpty) {
+        if books.isEmpty {
             errorLabel.isHidden = false
         }
         spinner.stopAnimating()
